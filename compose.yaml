@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: strategy
+      POSTGRES_USER: strategy
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - strategy_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U strategy -d strategy"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:8090:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://strategy:${POSTGRES_PASSWORD}@db:5432/strategy
+      ALLOWED_ORIGINS: http://localhost:8090,http://127.0.0.1:8090
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  strategy_postgres:

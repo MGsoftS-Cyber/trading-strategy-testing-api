@@ -1,0 +1,43 @@
+{
+  "common_inputs": {
+    "dataset_id": "e737ff27-3929-4581-ad41-d98efa37815f",
+    "market_id": "bitcoin-usd",
+    "start_date": "2026-05-29",
+    "end_date": "2026-10-05",
+    "initial_cash": "10000"
+  },
+  "varying_cost_assumptions": false,
+  "rows": [
+    {
+      "backtest_id": "85496d8e-0697-44cd-bc14-483e41289f77",
+      "name": "sma_cross synthetic experiment",
+      "strategy": "sma_cross",
+      "fee_rate": "0.001",
+      "slippage_rate": "0.001",
+      "final_equity": "6242.26769012520212159999381409058018",
+      "total_return": -0.3757732309874797,
+      "max_drawdown": 0.38392388156300084,
+      "sharpe_zero_risk_free": -3.9732824486206573,
+      "trade_count": 8,
+      "fees_paid": "67.68637551341449431911363898461982",
+      "benchmark_return": 0.014381717814695882,
+      "excess_total_return": -0.3901549488021756
+    },
+    {
+      "backtest_id": "8712d755-9e3f-45af-bbee-c1eff293c83a",
+      "name": "rsi_reversion synthetic experiment",
+      "strategy": "rsi_reversion",
+      "fee_rate": "0.001",
+      "slippage_rate": "0.001",
+      "final_equity": "10440.16630054405636196172648733373068",
+      "total_return": 0.04401663005440559,
+      "max_drawdown": 0.061431146124442226,
+      "sharpe_zero_risk_free": 1.9154322577539702,
+      "trade_count": 1,
+      "fees_paid": "9.99000999000998999553794008694932",
+      "benchmark_return": 0.014381717814695882,
+      "excess_total_return": 0.02963491223970971
+    }
+  ],
+  "interpretation": "Saved historical experiments; compare visible cost assumptions and do not interpret the largest historical return as future performance."
+}
